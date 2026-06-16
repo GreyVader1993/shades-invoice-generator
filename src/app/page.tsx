@@ -12,19 +12,18 @@ import type { InvoiceFields, LineItem } from '@/types/invoice';
 import { uid } from '@/lib/format';
 
 const DEFAULT_FIELDS: InvoiceFields = {
-  invNum:   '001',
-  invDate:  new Date().toISOString().split('T')[0],
-  fromName: 'Shraddha Tiwari',
-  fromAddr: '7319 Parkwood Cir, Apt A\nDublin, CA 94568',
+  invNum:    '',
+  invDate:   new Date().toISOString().split('T')[0],
+  fromName:  'Shraddha Tiwari',
+  fromAddr:  '7319 Parkwood Cir, Apt A\nDublin, CA 94568',
   fromEmail: '',
-  toName:   'India Community Center (ICC)',
-  toAddr:   '525 Los Coches Street\nMilpitas, CA 95035',
-  note:     'Thank you for the opportunity to work with ICC. I appreciate your support and collaboration.',
+  toName:    '',
+  toAddr:    '',
+  note:      '',
 };
 
 const DEFAULT_LINE_ITEMS: Omit<LineItem, 'id'>[] = [
-  { dates: 'June 1–5, 2026', service: 'Week 1 World Exploration and Physics', time: '8:45am – 10:45am', rate: '40', hours: '10' },
-  { dates: 'June 1–5, 2026', service: 'Week 1 Art',                           time: '10:45am – 12:45pm', rate: '40', hours: '10' },
+  { dates: '', service: '', time: '', rate: '', hours: '' },
 ];
 
 export default function HomePage() {
