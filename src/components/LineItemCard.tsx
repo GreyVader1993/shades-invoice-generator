@@ -1,5 +1,6 @@
 import type { LineItem } from '@/types/invoice';
 import { fmt, getItemAmount } from '@/lib/format';
+import TimeSelect from './TimeSelect';
 
 interface Props {
   item: LineItem;
@@ -42,20 +43,13 @@ export default function LineItemCard({ item, index, isOnly, onChange, onRemove }
       </div>
 
       <div className="field" style={{ marginBottom: 8 }}>
-        <label style={{ fontSize: 12, color: '#888', marginBottom: 4, display: 'block' }}>Time</label>
-        <div className="time-range">
-          <input
-            type="time"
-            value={item.timeFrom}
-            onChange={e => onChange(item.id, 'timeFrom', e.target.value)}
-          />
-          <span className="time-dash">–</span>
-          <input
-            type="time"
-            value={item.timeTo}
-            onChange={e => onChange(item.id, 'timeTo', e.target.value)}
-          />
-        </div>
+        <label style={{ fontSize: 12, color: '#888', marginBottom: 4, display: 'block' }}>Time (from)</label>
+        <TimeSelect value={item.timeFrom} onChange={v => onChange(item.id, 'timeFrom', v)} />
+      </div>
+
+      <div className="field" style={{ marginBottom: 8 }}>
+        <label style={{ fontSize: 12, color: '#888', marginBottom: 4, display: 'block' }}>Time (to)</label>
+        <TimeSelect value={item.timeTo} onChange={v => onChange(item.id, 'timeTo', v)} />
       </div>
 
       <div className="line-row-2" style={{ marginBottom: 6 }}>

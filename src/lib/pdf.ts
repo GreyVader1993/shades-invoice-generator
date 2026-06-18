@@ -109,7 +109,7 @@ export async function generateAndDownloadPDF(
       item.dates   || '—',
       item.service || '—',
       formatTimeRange(item.timeFrom, item.timeTo) || '—',
-      `$${parseFloat(item.rate) || 0}/HR`,
+      (r => isNaN(r) ? '—' : `$${r}/HR`)(parseFloat(item.rate)),
       `$${fmt(getItemAmount(item.rate, item.hours))}`,
     ];
 
