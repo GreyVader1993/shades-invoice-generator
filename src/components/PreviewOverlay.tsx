@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import type { InvoiceFields, LineItem } from '@/types/invoice';
-import { fmt, getItemAmount, formatDate } from '@/lib/format';
+import { fmt, getItemAmount, formatDate, formatTimeRange } from '@/lib/format';
 import { generateAndDownloadPDF } from '@/lib/pdf';
 
 interface Props {
@@ -60,7 +60,7 @@ function InvoicePreview({ fields, lineItems }: { fields: InvoiceFields; lineItem
             <tr key={item.id}>
               <td>{item.dates || '—'}</td>
               <td>{item.service || '—'}</td>
-              <td>{item.time || '—'}</td>
+              <td>{formatTimeRange(item.timeFrom, item.timeTo) || '—'}</td>
               <td>${parseFloat(item.rate) || 0}/HR</td>
               <td>${fmt(getItemAmount(item.rate, item.hours))}</td>
             </tr>

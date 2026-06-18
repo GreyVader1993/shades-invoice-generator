@@ -43,12 +43,19 @@ export default function LineItemCard({ item, index, isOnly, onChange, onRemove }
 
       <div className="field" style={{ marginBottom: 8 }}>
         <label style={{ fontSize: 12, color: '#888', marginBottom: 4, display: 'block' }}>Time</label>
-        <input
-          type="text"
-          placeholder="e.g. 8:45am – 10:45am"
-          value={item.time}
-          onChange={e => onChange(item.id, 'time', e.target.value)}
-        />
+        <div className="time-range">
+          <input
+            type="time"
+            value={item.timeFrom}
+            onChange={e => onChange(item.id, 'timeFrom', e.target.value)}
+          />
+          <span className="time-dash">–</span>
+          <input
+            type="time"
+            value={item.timeTo}
+            onChange={e => onChange(item.id, 'timeTo', e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="line-row-2" style={{ marginBottom: 6 }}>
