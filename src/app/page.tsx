@@ -23,7 +23,7 @@ const DEFAULT_FIELDS: InvoiceFields = {
 };
 
 const DEFAULT_LINE_ITEMS: Omit<LineItem, 'id'>[] = [
-  { dates: '', service: '', time: '', rate: '', hours: '' },
+  { dates: '', service: '', timeFrom: '', timeTo: '', rate: '', hours: '' },
 ];
 
 export default function HomePage() {
@@ -38,7 +38,7 @@ export default function HomePage() {
   }, []);
 
   const addLineItem = useCallback(() => {
-    setLineItems(prev => [...prev, { id: uid(), dates: '', service: '', time: '', rate: '40', hours: '10' }]);
+    setLineItems(prev => [...prev, { id: uid(), dates: '', service: '', timeFrom: '', timeTo: '', rate: '', hours: '' }]);
   }, []);
 
   const removeLineItem = useCallback((id: string) => {

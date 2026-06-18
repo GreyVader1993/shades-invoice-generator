@@ -101,6 +101,22 @@ body {
 
 .line-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
+.time-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.time-range input {
+  flex: 1;
+  min-width: 0;
+}
+.time-dash {
+  color: #bbb;
+  font-size: 15px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
 .line-item input {
   width: 100%; padding: 8px 10px;
   border: 1px solid #e0ddd8; border-radius: 7px;

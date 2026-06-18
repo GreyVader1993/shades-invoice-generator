@@ -1,5 +1,5 @@
 import type { InvoiceFields, LineItem } from '@/types/invoice';
-import { fmt, getItemAmount, formatDate } from './format';
+import { fmt, getItemAmount, formatDate, formatTimeRange } from './format';
 
 const COLS = (usable: number, margin: number) => [
   { label: 'DATES',   x: margin,                 w: usable * 0.18, align: 'left'  as const },
@@ -108,7 +108,7 @@ export async function generateAndDownloadPDF(
     const cells = [
       item.dates   || '—',
       item.service || '—',
-      item.time    || '—',
+      formatTimeRange(item.timeFrom, item.timeTo) || '—',
       `$${parseFloat(item.rate) || 0}/HR`,
       `$${fmt(getItemAmount(item.rate, item.hours))}`,
     ];

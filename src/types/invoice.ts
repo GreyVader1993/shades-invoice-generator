@@ -2,7 +2,8 @@ export interface LineItem {
   id: string;
   dates: string;
   service: string;
-  time: string;
+  timeFrom: string;
+  timeTo: string;
   rate: string;
   hours: string;
 }
