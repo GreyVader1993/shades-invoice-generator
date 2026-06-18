@@ -23,9 +23,8 @@ export function formatTime(t: string): string {
 export function formatTimeRange(from: string, to: string): string {
   const f = formatTime(from);
   const t = formatTime(to);
-  if (!f && !t) return '';
-  if (!f) return t;
-  if (!t) return f;
+  // Treat partial fills as empty so callers render '—' rather than an unlabeled half-time.
+  if (!f || !t) return '';
   return `${f} – ${t}`;
 }
 
